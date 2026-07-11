@@ -1,6 +1,6 @@
 # 🎯 SecHeaders Pro Scanner - Offensive Hacker Suite
 
-`SecHeaders Pro Scanner` by Vijay™ is engineered specifically for penetration testers, offensive security analysts, and red teamers who need to perform instant, live audits of web application HTTP response headers across tabs without page refreshes, detect missing defensive controls, identify information disclosure banners, and capture pristine executive screenshots for vulnerability reports.
+`SecHeaders Pro Scanner` by Vijay is engineered specifically for penetration testers, offensive security analysts, and red teamers who need to perform instant, live audits of web application HTTP response headers across tabs without page refreshes, detect missing defensive controls, identify information disclosure banners, and capture pristine executive screenshots for vulnerability reports.
 
 ---
 
@@ -40,14 +40,14 @@ Ideal for deep, unfiltered HTTP header interception (`chrome.webRequest` & `chro
 
 ```
 SecHeaders-Pro-Scanner/
-├── index.html                  # Interactive Dashboard & Bookmarklet Installer Hub (by Vijay Uba™)
+├── index.html                  # Interactive Dashboard & Bookmarklet Installer Hub (by Vijay Uba)
 ├── bookmarklet-sidebar.js      # Self-contained slide-in hacker scanner overlay source
 ├── generate_hacker_icons.py    # Python script that generated our custom Offensive Hacker Scanner icons
 ├── README.md                   # Documentation & Trademark Notice
 └── chrome-extension/           # Manifest V3 Chrome Extension package
-    ├── manifest.json           # Extension permissions & Vijay Uba™ branding
+    ├── manifest.json           # Extension permissions & Vijay Uba branding
     ├── background.js           # Real-time HTTP header interception & tab switch auto-scanner
-    ├── sidepanel.html          # Cyber-dark Side Panel & Popup UI with Vijay Uba™ title
+    ├── sidepanel.html          # Cyber-dark Side Panel & Popup UI with Vijay Uba title
     ├── sidepanel.css           # Executive dark-slate design system & screenshot styles
     ├── sidepanel.js            # OWASP auditing engine, search, export & screenshot logic
     └── icons/                  # 16x16, 48x48, and 128x128 Offensive Hacker Scanner PNG icons
