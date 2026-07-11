@@ -1,7 +1,6 @@
 # 🎯 SecHeaders Pro Scanner - Offensive Hacker Suite
-### Engineered & Trademarked by Vijay Uba™
 
-`SecHeaders Pro Scanner` by **Vijay Uba™** is engineered specifically for penetration testers, offensive security analysts, and red teamers who need to perform instant, live audits of web application HTTP response headers across tabs without page refreshes, detect missing defensive controls, identify information disclosure banners, and capture pristine executive screenshots for vulnerability reports under the **Vijay Uba™** trademark.
+`SecHeaders Pro Scanner` by Vijay™ is engineered specifically for penetration testers, offensive security analysts, and red teamers who need to perform instant, live audits of web application HTTP response headers across tabs without page refreshes, detect missing defensive controls, identify information disclosure banners, and capture pristine executive screenshots for vulnerability reports.
 
 ---
 
@@ -10,7 +9,7 @@
 - **⚡ Real-Time Auto-Scanning:** Automatically re-scans live headers immediately when switching tabs or navigating inside Single Page Applications (`SPA`) without requiring manual page refreshes.
 - **📊 OWASP Top 10 Header Compliance:** Automated grading (`A+` down to `F`) based on severity weights (`Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`, `Nosniff`, `Referrer-Policy`, `Permissions-Policy`, `COOP`, `COEP`, `CORP`).
 - **⚠️ Information Disclosure Detection:** Flags server fingerprinting and banner leaks (`Server`, `X-Powered-By`, `X-AspNet-Version`, `X-Generator`).
-- **📸 Vijay Uba™ Screenshot Prep Mode:** With one click, hides interactive buttons/tabs, expands summary cards, and inserts assessment metadata (`Target Host`, `Pentest Timestamp`, `Scope`, and **Architect & Trademark: Vijay Uba™**)—producing a clean, professional artifact ready for client audit reports.
+- **📸 Screenshot Prep Mode:** With one click, hides interactive buttons/tabs, expands summary cards, and inserts assessment metadata (`Target Host`, `Pentest Timestamp`, `Scope`)—producing a clean, professional artifact ready for client audit reports.
 - **📋 Remediation Code Snippets:** Copy hardened, ready-to-deploy header configurations directly to your clipboard for client developers.
 - **💾 Markdown & JSON Export:** Instant 1-click export of structured finding summaries for DefectDojo, Jira, and executive PDFs.
 
@@ -33,7 +32,7 @@ Ideal for deep, unfiltered HTTP header interception (`chrome.webRequest` & `chro
 1. Open Chrome and navigate to `chrome://extensions`.
 2. Enable **Developer mode** in the top-right toggle switch.
 3. Click **Load unpacked** and select the extension directory (`./chrome-extension`).
-4. Click the **SecHeaders Pro Scanner | Vijay Uba** icon in your Chrome toolbar or open the **Side Panel** (`Alt+B`) on any active tab.
+4. Click the **SecHeaders Pro Scanner** icon in your Chrome toolbar or open the **Side Panel** (`Alt+B`) on any active tab.
 
 ---
 
@@ -55,25 +54,3 @@ SecHeaders-Pro-Scanner/
 ```
 
 ---
-
-## 🌐 Uploading to GitHub & Renaming from `delightful-pasteur`
-
-To easily access this project by name (`SecHeaders-Pro-Scanner`) and upload it to your personal GitHub repository under your name (**Vijay Uba**):
-
-1. **Create a New Repository on GitHub:**
-   - Go to [github.com/new](https://github.com/new).
-   - Enter Repository name: **`SecHeaders-Pro-Scanner`** (or **`Offensive-Security-Headers-Scanner`**).
-   - Description: *Offensive Cybersecurity Live HTTP Security Headers Scanner & Pentest Report Tool by Vijay Uba.*
-   - Leave "Initialize with README" **unchecked** (since we already have our project ready). Click **Create repository**.
-
-2. **Push Local Files to GitHub:**
-   In your terminal / PowerShell inside this folder (`C:\Users\abhis\Documents\antigravity\delightful-pasteur`), run:
-   ```powershell
-   git init
-   git add .
-   git commit -m "Initial commit of SecHeaders Pro Scanner - Offensive Hacker Suite by Vijay Uba™"
-   git branch -M main
-   git remote add origin https://github.com/YourUsername/SecHeaders-Pro-Scanner.git
-   git push -u origin main
-   ```
-*(Replace `YourUsername` with your actual GitHub username! Once pushed, your GitHub repository will be accessible cleanly by name (`SecHeaders-Pro-Scanner`), displaying **Vijay Uba™** across the extension tabs, reports, and screenshots!)*
