@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecHeaders Pro Scanner | Vijay Uba™</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="app-container" id="appContainer">
+    <!-- Header / Branding -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2"></circle>
+            <circle cx="12" cy="12" r="5" stroke="#10b981" stroke-width="2"></circle>
+            <line x1="12" y1="2" x2="12" y2="22" stroke="#06b6d4" stroke-width="1.5"></line>
+            <line x1="2" y1="12" x2="22" y2="12" stroke="#06b6d4" stroke-width="1.5"></line>
+            <circle cx="12" cy="12" r="2" fill="#ef4444"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>SecHeaders Pro Scanner</h1>
+          <span class="version-badge">OFFENSIVE SCANNER | VIJAY UBA™</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <!-- Screenshot / Report Mode Toggle -->
+        <button id="toggleScreenshotMode" class="btn-icon-labeled tooltip" title="Clean UI for Client Assessment Screenshot">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <span>Screenshot Mode</span>
+        </button>
+        <button id="refreshBtn" class="btn-icon tooltip" title="Reload Tab & Re-Scan Headers">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Target Info Banner -->
+    <section class="target-banner" id="targetBanner">
+      <div class="target-main">
+        <div class="target-label">LIVE ASSESSMENT TARGET</div>
+        <div class="target-url" id="targetUrl">Loading current target...</div>
+      </div>
+      <div class="target-meta">
+        <span class="http-status" id="httpStatus">--</span>
+        <span class="scan-time" id="scanTime">--</span>
+      </div>
+    </section>
+
+    <!-- Report Header Banner (Only visible in Screenshot Mode) -->
+    <section class="screenshot-report-header" id="screenshotHeader">
+      <div class="report-badge">CONFIDENTIAL // PENTEST ASSESSMENT REPORT</div>
+      <div class="report-details">
+        <div><strong>Target Host:</strong> <span id="reportHost">--</span></div>
+        <div><strong>Assessment Date:</strong> <span id="reportDate">--</span></div>
+        <div><strong>Architect & Trademark:</strong> Vijay Uba™</div>
+      </div>
+    </section>
+
+    <!-- Grade & Score Overview Dashboard -->
+    <section class="dashboard-grid">
+      <!-- Grade Card -->
+      <div class="card grade-card" id="gradeCard">
+        <div class="grade-circle" id="gradeCircle">
+          <span class="grade-letter" id="gradeLetter">--</span>
+          <span class="grade-sub">RISK RATING</span>
+        </div>
+        <div class="grade-info">
+          <h3 id="gradeTitle">Analyzing Defenses...</h3>
+          <p id="gradeDesc">Evaluating OWASP Top 10 header compliance.</p>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="stats-cards">
+        <div class="stat-item stat-missing" id="statMissingCard">
+          <div class="stat-num" id="statMissing">0</div>
+          <div class="stat-label">Missing Defenses</div>
+        </div>
+        <div class="stat-item stat-present" id="statPresentCard">
+          <div class="stat-num" id="statPresent">0</div>
+          <div class="stat-label">Present Headers</div>
+        </div>
+        <div class="stat-item stat-warning" id="statWarningCard">
+          <div class="stat-num" id="statWarning">0</div>
+          <div class="stat-label">Info Disclosure</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar: Search, Filter Tabs, Export -->
+    <section class="toolbar" id="toolbarSection">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search header, vulnerability, or keyword...">
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All <span class="badge-count" id="countAll">0</span></button>
+        <button class="filter-btn danger" data-filter="missing">Missing <span class="badge-count" id="countMissing">0</span></button>
+        <button class="filter-btn success" data-filter="present">Secure <span class="badge-count" id="countPresent">0</span></button>
+        <button class="filter-btn warning" data-filter="warning">Disclosure <span class="badge-count" id="countWarning">0</span></button>
+      </div>
+
+      <div class="export-actions">
+        <button id="copyMarkdownBtn" class="btn-secondary">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Copy Markdown Report</span>
+        </button>
+        <button id="copyJsonBtn" class="btn-secondary">
+          <span>Copy JSON</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Findings List Section -->
+    <main class="findings-list" id="findingsList">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Capturing live HTTP headers from active tab...</p>
+      </div>
+    </main>
+
+    <!-- Raw Headers Accordion -->
+    <section class="raw-headers-section">
+      <details class="raw-headers-details">
+        <summary>Raw HTTP Response Headers (<span id="rawHeaderCount">0</span>)</summary>
+        <pre id="rawHeadersOutput" class="raw-pre">No raw headers loaded.</pre>
+      </details>
+    </section>
+
+    <footer class="app-footer" id="appFooter">
+      <p>SecHeaders Pro Scanner Suite &bull; Offensive Hacker Scanner &bull; Trademark &copy; Vijay Uba™</p>
+    </footer>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

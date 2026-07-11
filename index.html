@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecHeaders Pro Scanner Suite | Vijay Uba™</title>
+  <style>
+    :root {
+      --bg-main: #090e17;
+      --bg-panel: #0f172a;
+      --bg-card: #1e293b;
+      --bg-hover: #26354f;
+      --border: #334155;
+      --border-glow: #06b6d4;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --emerald: #10b981;
+      --cyan: #06b6d4;
+      --red: #ef4444;
+      --amber: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-main) 70%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .shield-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--red), var(--emerald));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text p {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-suite {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      color: var(--emerald);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Hero intro */
+    .hero {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(to bottom, var(--red), var(--emerald));
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 850px;
+      margin-bottom: 24px;
+    }
+
+    .demo-launch-btn {
+      background: linear-gradient(135deg, var(--red), #b91c1c);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+      transition: all 0.2s;
+    }
+
+    .demo-launch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+    }
+
+    /* Grid layout */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 850px) {
+      .options-grid { grid-template-columns: 1fr; }
+    }
+
+    .tool-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .tool-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+    }
+
+    .card-tag {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--cyan);
+      color: #0b1120;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .tool-card.extension .card-tag {
+      background: var(--emerald);
+    }
+
+    .tool-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    /* Bookmarklet Drag Area */
+    .bookmarklet-box {
+      background: var(--bg-main);
+      border: 2px dashed var(--cyan);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .bookmark-btn {
+      display: inline-block;
+      background: var(--bg-card);
+      border: 2px solid var(--cyan);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: grab;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+      transition: all 0.2s;
+    }
+
+    .bookmark-btn:hover {
+      background: var(--cyan);
+      color: #0b1120;
+    }
+
+    .drag-instructions {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Code copy snippet */
+    .code-container {
+      background: #060a10;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      position: relative;
+    }
+
+    .code-container pre {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--muted);
+      max-height: 90px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .copy-code-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-code-btn:hover {
+      border-color: var(--cyan);
+    }
+
+    /* Extension Steps */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #1e293b; color: var(--emerald); font-weight: 800; font-size: 11px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      border: 1px solid var(--emerald);
+    }
+
+    .dir-pill {
+      font-family: monospace;
+      background: #0b1120;
+      color: var(--emerald);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* Feature showcase */
+    .showcase {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .showcase h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .feature-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .feature-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .feature-item p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand-group">
+        <div class="shield-icon">🎯</div>
+        <div class="brand-text">
+          <h1>SecHeaders Pro Scanner</h1>
+          <p>Offensive Hacker Scanner &bull; Trademark &copy; Vijay Uba™</p>
+        </div>
+      </div>
+      <div class="badge-suite">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); display: inline-block;"></span>
+        <span>VIJAY UBA™ SUITE v1.1</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h2>Live HTTP Security Header Audit & Report Automation</h2>
+      <p>
+        <strong>SecHeaders Pro Scanner</strong> by <strong>Vijay Uba™</strong> is designed specifically for penetration testers, offensive security analysts, and red teamers.
+        It inspects active tab security defenses (`HSTS`, `CSP`, `X-Frame-Options`, `Nosniff`) and detects info disclosure leaks (`Server`, `X-Powered-By`), complete with instant auto-scanning without page refreshes and a specialized <strong>Screenshot Prep Mode</strong> for executive client reports carrying the Vijay Uba™ trademark.
+      </p>
+      <button class="demo-launch-btn" id="testBookmarkletBtn">
+        <span>🚀 Test Hacker Sidebar Right Here</span>
+      </button>
+    </section>
+
+    <div class="options-grid">
+      <!-- Option 1: Bookmarklet -->
+      <div class="tool-card">
+        <span class="card-tag">No Install / Instant</span>
+        <div>
+          <h3>📌 Option 1: Chrome Bookmarklet Sidebar</h3>
+          <p>
+            Drag this button directly to your Chrome Bookmarks Bar. When clicked on any active webpage, it injects a self-contained, slide-in offensive hacker scanner sidebar with live header grading and Vijay Uba™ trademark screenshot prep.
+          </p>
+
+          <div class="bookmarklet-box">
+            <a href="#" class="bookmark-btn" id="bookmarkletLink" onclick="return false;" title="Drag me to your Bookmarks Bar!">🎯 SecHeaders Scanner</a>
+            <div class="drag-instructions">
+              👆 <strong>Drag & drop</strong> this button up to your browser's Bookmarks Bar (or right-click to copy link address).
+            </div>
+          </div>
+        </div>
+
+        <div class="code-container">
+          <button class="copy-code-btn" id="copyRawJsBtn">Copy Raw JS</button>
+          <pre id="rawJsPreview">Loading bookmarklet source...</pre>
+        </div>
+      </div>
+
+      <!-- Option 2: Chrome Extension -->
+      <div class="tool-card extension">
+        <span class="card-tag">Native Side Panel API</span>
+        <div>
+          <h3>🧩 Option 2: Manifest V3 Chrome Extension</h3>
+          <p>
+            For deep, unfiltered HTTP header interception without CORS limitations and real-time tab switching synchronization, load the full SecHeaders Pro Scanner extension.
+          </p>
+
+          <ul class="steps-list">
+            <li>
+              <span class="step-num">1</span>
+              <span>Open Chrome and navigate to <code class="dir-pill">chrome://extensions</code></span>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <span>Enable <strong>Developer mode</strong> in the top right toggle switch.</span>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <span>Click <strong>Load unpacked</strong> and select the extension folder:<br><code class="dir-pill" style="margin-top: 4px; display: inline-block;">./chrome-extension/</code></span>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <span>Click the <strong>SecHeaders Pro Scanner | Vijay Uba</strong> icon in your toolbar to scan any site instantly!</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--emerald); padding: 12px; border-radius: 8px; font-size: 12px; color: #fff;">
+          💡 <strong>Pro Tip:</strong> Toggle <strong>"Screenshot Mode"</strong> inside the extension side panel or bookmarklet to format findings specifically for client audit reports displaying the Vijay Uba™ trademark!
+        </div>
+      </div>
+    </div>
+
+    <section class="showcase">
+      <h3>🎯 Built-In Offensive Hacker Scanner Features</h3>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <h4>OWASP Top 10 Scoring</h4>
+          <p>Automated grading (A+ down to F) based on severity weights for critical defensive controls.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h4>Instant Auto-Scanning</h4>
+          <p>Automatically re-scans live headers immediately when you switch tabs or navigate without manual page refreshes.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📸</div>
+          <h4>Vijay Uba™ Screenshot Prep</h4>
+          <p>Strips away clutter, expands cards, and adds target host and Vijay Uba™ trademark stamps for client reports.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <h4>Markdown & JSON Export</h4>
+          <p>Generate instant, well-formatted markdown finding summaries ready to paste into DefectDojo or Jira.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      SecHeaders Pro Scanner Suite &bull; Offensive Cybersecurity Hacker Scanner &bull; Trademark &copy; Vijay Uba™ &bull; All Rights Reserved
+    </footer>
+  </div>
+
+  <script src="bookmarklet-sidebar.js"></script>
+  <script>
+    fetch('bookmarklet-sidebar.js')
+      .then(r => r.text())
+      .then(code => {
+        const minified = code
+          .replace(/\/\*[\s\S]*?\*\//g, '')
+          .replace(/\/\/.*/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        const bookmarkletUri = 'javascript:' + encodeURIComponent(minified);
+        
+        document.getElementById('bookmarkletLink').setAttribute('href', bookmarkletUri);
+        document.getElementById('rawJsPreview').textContent = code;
+
+        document.getElementById('copyRawJsBtn').addEventListener('click', () => {
+          navigator.clipboard.writeText(bookmarkletUri).then(() => {
+            const btn = document.getElementById('copyRawJsBtn');
+            btn.textContent = 'Copied Bookmarklet!';
+            btn.style.borderColor = '#10b981';
+            setTimeout(() => {
+              btn.textContent = 'Copy Raw JS';
+              btn.style.borderColor = '';
+            }, 2000);
+          });
+        });
+      })
+      .catch(err => {
+        console.error("Could not load bookmarklet code:", err);
+        document.getElementById('rawJsPreview').textContent = "Error loading local bookmarklet code.";
+      });
+
+    document.getElementById('testBookmarkletBtn').addEventListener('click', () => {
+      const existing = document.getElementById('secheaders-pro-sidebar-host');
+      if (!existing) {
+        const script = document.createElement('script');
+        script.src = 'bookmarklet-sidebar.js?t=' + Date.now();
+        document.body.appendChild(script);
+      } else {
+        existing.remove();
+      }
+    });
+  </script>
+</body>
+</html>

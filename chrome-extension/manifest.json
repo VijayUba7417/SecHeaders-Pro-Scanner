@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "SecHeaders Pro Scanner - Offensive Hacker Scanner | Vijay Uba",
+  "version": "1.1.0",
+  "description": "Offensive cybersecurity live header scanner with instant auto-updating across tabs, missing defense analysis, and report-ready screenshot mode. Architected by Vijay Uba.",
+  "permissions": [
+    "sidePanel",
+    "webRequest",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "SecHeaders Pro Scanner | Vijay Uba",
+    "default_popup": "sidepanel.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
