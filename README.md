@@ -35,22 +35,3 @@ Ideal for deep, unfiltered HTTP header interception (`chrome.webRequest` & `chro
 4. Click the **SecHeaders Pro Scanner** icon in your Chrome toolbar or open the **Side Panel** (`Alt+B`) on any active tab.
 
 ---
-
-## 📁 Repository & Directory Structure
-
-```
-SecHeaders-Pro-Scanner/
-├── index.html                  # Interactive Dashboard & Bookmarklet Installer Hub (by Vijay Uba)
-├── bookmarklet-sidebar.js      # Self-contained slide-in hacker scanner overlay source
-├── generate_hacker_icons.py    # Python script that generated our custom Offensive Hacker Scanner icons
-├── README.md                   # Documentation & Trademark Notice
-└── chrome-extension/           # Manifest V3 Chrome Extension package
-    ├── manifest.json           # Extension permissions & Vijay Uba branding
-    ├── background.js           # Real-time HTTP header interception & tab switch auto-scanner
-    ├── sidepanel.html          # Cyber-dark Side Panel & Popup UI with Vijay Uba title
-    ├── sidepanel.css           # Executive dark-slate design system & screenshot styles
-    ├── sidepanel.js            # OWASP auditing engine, search, export & screenshot logic
-    └── icons/                  # 16x16, 48x48, and 128x128 Offensive Hacker Scanner PNG icons
-```
-
----
